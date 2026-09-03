@@ -1,12 +1,13 @@
 import { Text, View, StyleSheet, Image, Pressable } from "react-native";
+import { CharacterModel } from "@/model/CharacterModel";
 
-export default function CharacterCardView() {
+export default function CharacterCardView({ character }: { character: CharacterModel }) {
     return (
         <View style={styles.characterCard}>
-            <Image style={styles.characterPicture} />
+            <Image style={styles.characterPicture} source={{ uri: character.imageUrl }} />
             <View>
-                <Text style={styles.name}>Nome</Text>
-                <Text style={styles.description}>Descrição</Text>
+                <Text style={styles.name}>{character.name}</Text>
+                <Text style={styles.description}>{character.description}</Text>
             </View>
             <Pressable style={styles.button}>
                 <Text>Editar</Text>
